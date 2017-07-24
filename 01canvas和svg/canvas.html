@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>canvas的应用</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500px" height="400px">
+      哟，您的浏览器驾驭不了canvas标签哟
+    </canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.beginPath();
+      ctx.strokeStyle = "red";
+      var circle = {
+        x : 100,
+        y : 100,
+        r : 50
+      }
+      ctx.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, false);
+      ctx.stroke();
+    </script>
+  </body>
+</html>

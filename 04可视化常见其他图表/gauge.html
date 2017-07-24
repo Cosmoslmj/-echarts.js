@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>仪表图的应用</title>
+    <script src="../echarts.min.js"></script>
+  </head>
+  <body>
+  <div id="main" style="width:800px;height:500px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+       tooltip : {
+        formatter: "{a} <br/>{b} : {c}%"
+    },
+    toolbox: {
+        feature: {
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    series: [
+        {
+            name: '业务指标',
+            type: 'gauge',
+            detail: {formatter:'{value}%'},
+            data: [{value: 32, name: '完成率'}]
+        }
+    ]
+    };
+    // 使用配置和显示图
+    myChart.setOption(option);
+    setInterval(function () {
+    option.series[0].data[0].value = (Math.random() * 80).toFixed(2) - 0;
+    myChart.setOption(option, true);
+},2000);
+  </script>
+  </body>
+</html>

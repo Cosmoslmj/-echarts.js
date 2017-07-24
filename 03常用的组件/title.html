@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>副标题的应用</title>
+    <script src="../echarts.min.js"></script>
+  </head>
+  <body>
+  <div id="main" style="width:800px;height:500px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+      // 标题
+        title: {
+        show:true,
+        text: '学习Echarts',
+        subtext:'练习各种图形',
+        left:'right', // 数字就是像素值 ，也可以是 center left right这种值
+        borderColor:'red',
+        borderWidth:5,
+        textStyle:{
+            fontSize:20
+        }
+    },
+      // 工具箱
+      toolbox: {
+        show: true,
+        feature: {
+          saveAsImage: {
+            shoiw: true
+          }
+        }
+      },
+      // 图例
+      legend: {
+        data: ['程度']
+      },
+      // x轴
+      xAxis: {
+        data:["HTML","CSS","JAVASCRIPT","JQUERY","AJAX","JSON","VUE"]
+      },
+       // y轴
+      yAxis: {},
+      // 数据
+      series: [{
+        name:'程度',
+        type: 'bar',
+        data: [90,80,50,40,50,50,50]
+      }]
+    };
+    // 使用配置和显示图
+    myChart.setOption(option);
+  </script>
+  </body>
+</html>

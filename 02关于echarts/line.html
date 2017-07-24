@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>折线图的应用</title>
+    <script src="../echarts.min.js"></script>
+  </head>
+  <body>
+  <div id="main" style="width:800px;height:500px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+      // 标题
+      title: {
+        text: '学习Echarts'
+      },
+      // 工具箱
+      toolbox: {
+        show: true,
+        feature: {
+          saveAsImage: {
+            show: true
+          }
+        }
+      },
+      // 图例
+      legend: {
+        data: ['程度']
+      },
+      // x轴
+      xAxis: {
+        data:["HTML","CSS","JAVASCRIPT","JQUERY","AJAX","JSON","VUE"]
+      },
+       // y轴
+      yAxis: {},
+      // 数据
+      series: [{
+        name:'程度',
+        type: 'bar',
+        data: [90,80,50,40,50,50,50]
+      },{
+        name: '状态',
+        type: 'line',
+        data:[90,80,50,40,50,50,50]
+      }]
+    };
+    // 使用配置和显示图
+    myChart.setOption(option);
+  </script>
+</html>

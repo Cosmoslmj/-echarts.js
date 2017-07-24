@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>标记线和标记点的应用</title>
+    <script src="../echarts.min.js"></script>
+  </head>
+  <body>
+  <div id="main" style="width:800px;height:500px;"></div>
+  <script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+      // 标题
+      title: {
+        text: '学习Echarts'
+      },
+      // 工具箱
+      toolbox: {
+        show: true,
+        feature: {
+          saveAsImage: {
+            show: true
+          },
+          dataView: {
+            show: true
+          },
+          dataZoom: {
+            show: true
+          },
+          magicType: {
+            type: ['line', 'bar']
+          }
+        }
+      },
+            // 图例
+      legend: {
+        data: ['程度']
+      },
+       tooltip: {
+        trigger: 'axis'
+      },
+      // x轴
+      xAxis: {
+        data:["HTML","CSS","JAVASCRIPT","JQUERY","AJAX","JSON","VUE"]
+      },
+       // y轴
+      yAxis: {},
+      // 数据
+      series: [{
+        name:'程度',
+        type: 'bar',
+        data: [90,80,50,40,50,50,50],
+        markPoint: {
+            data: [
+                {type: 'max', name: '最大值'},//气泡
+                {type: 'min', name: '最小值',symbol:'arrow'}//三角形
+            ]
+        },
+         markLine: {
+            data: [
+                {type: 'average', name: '平均值'}
+            ]
+        }
+      }]
+    };
+    // 使用配置和显示图
+    myChart.setOption(option);
+  </script>
+  </body>
+</html>
